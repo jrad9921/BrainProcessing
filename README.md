@@ -11,7 +11,7 @@ Preprocessing for Brain sMRI:
   - registers raw niftiis and saves into nifti_reg folder 
   - skull-stripps registered niftiis and saves into nifti_deskull folder
 ### 4. Tensor transformations
-- npy_transforms.py includes cropping and normalization and creation of npy tensors
+- npy_transforms.py includes cropping, normalization and resizing and creation of npy tensors
 - python npy_transforms.py --cohort ixi --crop_size 180 --img_size 96 --input_folder /data/input --output_folder /data/output
 ## Data Layout  
 
