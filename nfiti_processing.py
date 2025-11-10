@@ -1,5 +1,3 @@
-
-
 import os
 import subprocess
 import ants
@@ -70,7 +68,7 @@ def deskull(reg_name, gpu_id=0):
         print(f"[ERROR] BET {reg_name}: {e}")
     except Exception as e:
         print(f"[ERROR] BET {reg_name}: {e}")
-#%%
+
 if __name__ == "__main__":
     os.makedirs(cfg.n4_folder, exist_ok=True)
     os.makedirs(cfg.reg_folder, exist_ok=True)
