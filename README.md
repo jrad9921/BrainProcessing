@@ -4,7 +4,7 @@ Preprocessing for Brain sMRI:
 ### 1. Extracting dcms
 - extract_zip.py creates a structured dcm_raw folder after extracting downloaded data contained in zips
 ### 2. Dcm to niftii conversion 
-- dcm2nii.sh converts structured dcms to niftiis  #if you already have a BIDS-structured dcm_raw folder 
+- dcm_processing.py converts structured dcms to niftiis  #if you already have a BIDS-structured dcm_raw folder 
 ### 3. Nifti preprocessing 
 - nifti_processing.py
   - bias corrects registered images and saves into nifti_n4 folder  
@@ -12,10 +12,10 @@ Preprocessing for Brain sMRI:
   - skull-stripps registered niftiis and saves into nifti_deskull folder
 ### 4. Tensor transformations
 - npy_transforms.py includes cropping, normalization and resizing and creation of npy tensors
-- python npy_transforms.py --cohort ixi --crop_size 180 --img_size 96 --input_folder /data/input --output_folder /data/output
+
 ## Data Layout  
 
-All datasets live under a top-level `images/` directory outside the preprocessing code in image_processing directory which should preferably be parallel to image directory but not inside. 
+All datasets reside under a top-level `images/` directory outside the preprocessing code in BrainProcessing directory which should preferably be parallel to image directory but not inside. 
 Each cohort has its own subdirectory for images at different preprocessing steps.
 
 Data Tree
@@ -52,7 +52,7 @@ images/
 
 
 ### Tips
-- You can create npy_{cohort1}96 directory too, to test run with smaller images first. Give img_size=96 to npy_transforms.py that will downsize the 3D images using torchio.
+- You can create npy96 directory too, to test run with smaller images first. Give img_size=96 to npy_transforms.py that will downsize the 3D images using torchio.
 - Delete the registered niftii folder later if you have verified that all were correctly registered, in case you want to save space.
 - Different registering techniques can also be tried, for example, set reg_path as a new nifti_reg_nlin folder to save nonlinear registration and set 'SyN' as the Ants registration parameter.
 
